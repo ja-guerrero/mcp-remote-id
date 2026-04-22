@@ -9,9 +9,16 @@
     "remote",
     "oauth"
   ],
-  "author": "Glen Maddern <glen@glenmaddern.com>",
+  "author": "Jaime Guerrero",
   "license": "MIT",
-  "repository": "https://github.com/geelen/mcp-remote",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ja-guerrero/mcp-remote-id.git"
+  },
+  "homepage": "https://github.com/ja-guerrero/mcp-remote-id#readme",
+  "bugs": {
+    "url": "https://github.com/ja-guerrero/mcp-remote-id/issues"
+  },
   "type": "module",
   "files": [
     "dist",

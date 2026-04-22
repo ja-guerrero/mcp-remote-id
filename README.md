@@ -48,10 +48,3 @@ To use the default `access_token` behavior, simply omit `--token-type`:
   }
 }
 ```
-
-## Publishing
-
-```bash
-npm login
-npm publish --access public
-```
