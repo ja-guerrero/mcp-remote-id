@@ -1,20 +1,10 @@
-# mcp-remote-id
+# mcp-remote-id (Deprecated)
 
-A fork of [`mcp-remote`](https://github.com/geelen/mcp-remote) that adds support for using **id_tokens** as Bearer tokens when authenticating with remote MCP servers.
+> **This fork is no longer needed.** The upstream [`mcp-remote`](https://github.com/geelen/mcp-remote) now natively supports `id_token` authentication via the `--use-id-token` flag. Please migrate to `mcp-remote` directly.
 
-## Why this fork?
+## Migration
 
-The upstream `mcp-remote` always sends the OAuth `access_token` as the Bearer token. However, some OAuth providers do not include identity claims (email, groups, etc.) in access tokens by default, making them insufficient for authorization decisions on the server side. The `id_token` contains these claims and is what remote MCP servers need to identify and authorize users.
-
-This fork adds a `--token-type` flag that lets you send the `id_token` instead.
-
-## What changed
-
-- Added `--token-type` CLI argument (`access_token` | `id_token`, defaults to `access_token`)
-- When `--token-type id_token` is set, the `id_token` from the OAuth token response is swapped into the Bearer header
-- No behavior change when the flag is omitted — fully backwards compatible with upstream
-
-## Usage
+Replace `mcp-remote-id` with `mcp-remote` and swap `--token-type id_token` for `--use-id-token`:
 
 ```json
 {
@@ -23,28 +13,17 @@ This fork adds a `--token-type` flag that lets you send the `id_token` instead.
       "command": "npx",
       "args": [
         "-y",
-        "mcp-remote-id",
+        "mcp-remote",
         "https://remote.mcp.server/sse",
-        "--token-type", "id_token"
+        "--use-id-token"
       ]
     }
   }
 }
 ```
 
-To use the default `access_token` behavior, simply omit `--token-type`:
+## Original purpose
 
-```json
-{
-  "mcpServers": {
-    "remote-example": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "mcp-remote-id",
-        "https://remote.mcp.server/sse"
-      ]
-    }
-  }
-}
-```
+This fork added support for using **id_tokens** as Bearer tokens when authenticating with remote MCP servers. The upstream `mcp-remote` only sent the OAuth `access_token`, which some providers don't populate with identity claims (email, groups, etc.). This fork's `--token-type id_token` flag worked around that limitation.
+
+The upstream project has since added this feature with a `--use-id-token` flag, along with additional improvements like JWT expiry handling for id_tokens.

@@ -1,7 +1,8 @@
 {
   "name": "mcp-remote-id",
-  "version": "0.2.2",
-  "description": "Remote proxy for Model Context Protocol, allowing local-only clients to connect to remote servers using oAuth",
+  "version": "0.2.3",
+  "deprecated": "Use mcp-remote with --use-id-token instead. See https://github.com/geelen/mcp-remote",
+  "description": "[DEPRECATED] Remote proxy for Model Context Protocol, allowing local-only clients to connect to remote servers using oAuth",
   "keywords": [
     "mcp",
     "stdio",
@@ -15,7 +16,7 @@
     "type": "git",
     "url": "https://github.com/ja-guerrero/mcp-remote-id.git"
   },
-  "homepage": "https://github.com/ja-guerrero/mcp-remote-id#readme",
+  "homepage": "https://github.com/geelen/mcp-remote",
   "bugs": {
     "url": "https://github.com/ja-guerrero/mcp-remote-id/issues"
   },
